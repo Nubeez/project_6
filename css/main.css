@@ -1,0 +1,222 @@
+@charset "UTF-8";
+
+* {
+    margin: 0 auto;
+    padding: 0;
+    vertical-align: top;
+}
+
+@font-face {
+    font-family: 'SUITE-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ONE-Mobile-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/ONE-Mobile-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+ul,
+li,
+ol,
+a {
+    text-decoration: none;
+    list-style: none;
+    color: #000;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.bgc_on {
+    background-color: #fff;
+    transition: all 200ms;
+}
+
+.logo {
+    width: 20%;
+    height: 100px;
+}
+
+.logo>a>img {
+    width: 120px;
+    height: 100px;
+    display: flex;
+    filter: invert(100%);
+}
+
+header:hover .logo>a>img {
+    filter: invert(0%);
+}
+
+.nav_bgc {
+    position: absolute;
+    left: 0;
+    top: 100px;
+    width: 100%;
+    height: 0px;
+    z-index: 2;
+}
+
+.on {
+    background-color: #fff;
+    height: 250px;
+    display: none;
+}
+
+.nav {
+    width: 60%;
+}
+
+.dark_mode {
+    width: 20%;
+    height: 100px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav>ul {
+    width: 70%;
+    height: 100px;
+    display: flex;
+    position: relative;
+}
+
+.nav>ul>li>ul {
+    position: absolute;
+    width: 100%;
+    left: 0px;
+    top: 100px;
+    line-height: 40px;
+    z-index: 2;
+    display: none;
+    position: absolute;
+    top: 100px;
+    left: 35px;
+}
+
+.nav>ul>li>ul>li {
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: 'ONE-Mobile-Regular';
+}
+
+.nav>ul>li>a {
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    font-size: 1.3rem;
+    font-family: 'SUITE-Regular';
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    font-weight: bold;
+    color: #fff;
+}
+
+header:hover .nav>ul>li>a {
+    color: #000;
+}
+
+.nav>ul>li>a:hover {
+    color: rgb(1, 100, 200) !important;
+}
+
+.nav>ul>li>ul>li>a:hover {
+    color: rgb(1, 100, 200);
+}
+
+.border_on {
+    width: 100%;
+}
+
+#slide {
+    width: 100%;
+    height: 100vh;
+    background: url(../img/BeSpoke_main.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#section1 {
+    width: 100%;
+    height: 700px;
+    position: relative;
+}
+
+#section1>.section1_box {
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    /* 내부 요소를 가운데 정렬하기 위해 추가 */
+}
+
+#section1>.section1_box>.left_title,
+#section1>.section1_box>.right_img {
+    width: 50%;
+    /* 추가적으로 필요한 스타일 */
+}
+
+#section1>.section1_box>.left_title {
+    padding-left: 200px;
+}
+
+#section1>.section1_box>.left_title h2 span {
+    display: block;
+    line-height: 10vw;
+    font-weight: 100;
+    font-size: 6vw;
+}
+
+#section1>.section1_box>.left_title h2 {
+    display: block;
+    line-height: 2vw;
+    font-weight: bold;
+    font-size: 6vw;
+}
+
+#section1>.section1_box>.left_title span {
+    display: block;
+    line-height: 10vw;
+    font-weight: 400;
+    font-size: 1.5vw;
+}
+
+.right_img img {
+    display: block;
+    max-width: 100%;
+}
+
+#section2 {
+    width: 100%;
+    height: 700px;
+    background-color: #969696;
+}
+
+#section3 {
+    width: 100%;
+    height: 700px;
+    background-color: #8d8d8d;
+}
+
+footer {
+    width: 100%;
+    height: 150px;
+    background-color: #d3d3d3;
+}

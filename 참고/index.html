@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green 복지 재단</title>
+    <link rel="stylesheet" href="./css/main.css">
+    <script src="./script/jquery-1.12.3.js"></script>
+    <!-- <script src="./script/main.js"></script>  -->
+    <!-- 전부 끝내고 붙여넣고 링크걸기 -->
+</head>
+
+<body>
+    <div id="wrap">
+        <div id="header">
+            <h1 class="logo">
+                <img src="./images/Header/logo.png" alt="Green복지재단">
+            </h1>
+            <div class="nav">
+                <div class="navbgc"></div>
+                <ul>
+                    <li><a href="">재단소개</a>
+                        <ul>
+                            <li><a href="#">설립취지</a></li>
+                            <li><a href="#">연혁</a></li>
+                            <li><a href="#">찾아오시는길</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="">후원하기</a>
+                        <ul>
+                            <li><a href="#">국내후원</a></li>
+                            <li><a href="#">국외후원</a></li>
+                            <li><a href="#">맞춤후원</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="">자료실</a>
+                        <ul>
+                            <li><a href="#">서식자료실</a></li>
+                            <li><a href="#">사진자료실</a></li>
+                            <li><a href="#">후원양식</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="">스토리</a>
+                        <ul>
+                            <li><a href="#">웹진</a></li>
+                            <li><a href="#">보고서</a></li>
+                            <li><a href="#">나의후원</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="slide">
+            <div class="slideWrap">
+                <div class="slider">
+                    <img src="./images/Slide/img1.jpg" alt="slid e_img1">
+                    <div class="slideimg_bg"></div>
+                    <div class="slide_text">
+                        <span>이미지1</span>
+                        <p>이미지1이미지1</p>
+                    </div>
+                </div>
+                <div class="slider">
+                    <img src="./images/Slide/img2.jpg" alt="slide_img2">
+                    <div class="slideimg_bg"></div>
+                    <div class="slide_text">
+                        <span>이미지1</span>
+                        <p>이미지1이1이미지1</p>
+                    </div>
+                </div>
+                <div class="slider">
+                    <img src="./images/Slide/img3.jpg" alt="slide_img3">
+                    <div class="slideimg_bg"></div>
+                    <div class="slide_text">
+                        <span>이미지1</span>
+                        <p>이미지1이미지1</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="contents">
+            <div class="content1"></div>
+            <div class="content2"></div>
+            <div class="content3"></div>
+        </div>
+        <footer>
+            <div class="footer1"></div>
+            <div class="footer2"></div>
+            <div class="footer3"></div>
+        </footer>
+    </div>
+</body>
+<script>
+    $(function () {
+        $(".nav>ul>li").mouseover(() => {
+            $(".nav>ul>li>ul").stop().slideDown(500);
+            $("#header").addClass("on");
+        })
+        $(".nav>ul>li").mouseout(() => {
+            $(".nav>ul>li>ul").stop().slideUp(300);
+            $("#header").removeClass("on");
+        })
+        // nav 끝
+
+        // let sliderIndex = 0;
+
+        // $(".slideWrap").append($(".slider").first().clone(true));
+
+        // setInterval(() => {
+        //     let nextIndex = (sliderIndex + 1) % 3;
+
+        //     $(".slider").eq(sliderIndex).fadeOut(1200);
+        //     $(".slider").eq(nextIndex).fadeIn(1200);
+
+        //     sliderIndex = nextIndex;
+        // }, 3000)
+
+        // setInterval(() => {
+        //     sliderIndex++;
+        //     $(".slideWrap").animate({ marginLeft: -sliderIndex * 1200 + "px" }, 600);
+        //     if (sliderIndex == 3) {
+        //         setTimeout(() => {
+        //             $(".slideWrap").animate({ marginLeft: 0 }, 0);
+        //             sliderIndex = 0;
+        //         }, 600)
+        //     }
+        // }, 3000)
+    })
+</script>
+
+</html>
