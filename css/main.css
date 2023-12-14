@@ -174,7 +174,7 @@ header:hover .nav>ul>li>a {
 }
 
 #section1>.section1_box>.left_title {
-    padding-left: 200px;
+    margin-left: 170px;
 }
 
 #section1>.section1_box>.left_title h2 span {
@@ -193,9 +193,9 @@ header:hover .nav>ul>li>a {
 
 #section1>.section1_box>.left_title span {
     display: block;
-    line-height: 10vw;
+    line-height: 8vw;
     font-weight: 400;
-    font-size: 1.5vw;
+    font-size: 1.2vw;
 }
 
 .right_img img {
