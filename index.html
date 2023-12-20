@@ -40,7 +40,19 @@
             </div>
             <div class="dark_mode">Dark</div>
         </header>
-        <div id="slide"></div>
+        <div id="slide">
+            <div class="tx_center">
+                <div class="tx_title hidden">
+                    <span>BESPOKE</span>
+                    <div class="tx_bold">
+                        <span>Infinite Line</span>
+                    </div>
+                </div>
+            </div>
+            <div class="tx_bottom tx_center2 hidden2">
+                <span>나만을 위한 디자인</span>
+            </div>
+        </div>
         <div id="section1">
             <div class="section1_box">
                 <div class="left_title">
@@ -55,9 +67,66 @@
                 </div>
             </div>
         </div>
-        <div id="section2"></div>
+        <div id="section2">
+            <div class="box_wrap">
+                <div class="small_box">
+                    <a href="#">
+                        <div class="img_box">
+                            <img src="img/icon/besfoke_2_icon.png" alt="">
+                        </div>
+                        <div class="tx_content">
+                            <strong class="tx-04" style="margin: 0; height: 40px;">브랜드 소개</strong>
+                            <span style="line-height: 20px;">자연을 담은 편안함, 알루미늄 메탈의 감성, 간결한 선들로 시간이 흘러도 변하지 않는 디자인을
+                                품고있습니다.</span>
+                            <div class="btn_content">
+                                <img src="img/icon/arrow_2.png" alt="버튼이미지" id="btnImage">
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="small_box"><a href="#">
+                        <div class="img_box">
+                            <img src="img/icon/003_1.png" alt="">
+                        </div>
+                        <div class="tx_content">
+                            <strong class="tx-04" style="margin: 0; height: 40px;">나만의 디자인</strong>
+                            <span style="line-height: 20px;  margin: 0;"> 고객의 취향에 고를 수 있는 디자인,<p>혁신적인 스마트싱스 AI
+                                    기술력으로<br>편리함을 추구합니다.
+                                </p>
+                            </span>
+                            <div class="btn_content">
+                                <img src="img/icon/arrow_2.png" alt="버튼이미지" id="btnImage">
+                            </div>
+                        </div>
+                    </a></div>
+                <div class="small_box">
+                    <a href="#">
+                        <div class="img_box">
+                            <img src="img/icon/microwave_3_icon.png" alt="">
+                        </div>
+                        <div class="tx_content">
+                            <strong class="tx-04" style="margin: 0; height: 40px;">Infinite Line</strong>
+                            <span style="line-height: 20px;">삼성 Besfoke는 자연의 질감을 그대로 담은 편안함, 압도적 고급감의 알루미늄 메탈의 감성과 간결하면서
+                                본질적인 선들로 시간이 흘러도 변하지않는
+                                디자인을 품고있습니다.</span>
+                            <div class="btn_content">
+                                <img src="img/icon/arrow_2.png" alt="버튼이미지" id="btnImage">
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="choice_bespoke">
+                    <div class="gif_img">
+                        <img src="img/dd71e179dbf7a.gif" alt="">
+                    </div>
+                </div>
+            </div>
+
+        </div>
         <div id="section3"></div>
-        <footer></footer>
+        <div id="section4"></div>
+        <footer>
+        </footer>
     </div>
 </body>
 <script>
@@ -80,6 +149,24 @@
         $("header").mouseout(() => {
             $("header").removeClass("bgc_on");
         })
+
+        const btnImage = document.getElementById('btnImage');
+
+        // 마우스 오버 시 이미지 변경
+        btnImage.addEventListener('mouseover', function () {
+            this.src = "img/icon/arrow_1.png";
+        });
+
+        // 마우스 아웃 시 원래 이미지로 변경
+        btnImage.addEventListener('mouseout', function () {
+            this.src = "img/icon/arrow_2.png";
+        });
+    });
+    $(document).ready(function () {
+        $(".hidden").animate({ opacity: 1 }, 2000, function () {
+            // hidden1의 애니메이션이 끝나면 hidden2를 페이드 인시킴
+            $(".hidden2").animate({ opacity: 1 }, 1000);
+        });
     });
 </script>
 
