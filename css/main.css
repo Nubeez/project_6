@@ -385,13 +385,67 @@ header:hover .nav>ul>li>a {
 }
 
 #section4 {
+    position: relative;
     width: 100%;
-    height: 700px;
-    background-color: #676767;
+    height: 500px;
+    background: url(../img/section4/bg_banner01_v2.webp);
+}
+
+#section4::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* 어두운 음영을 주는 배경색 */
+    /* 조절 가능한 opacity 값을 사용하여 음영 강도 조절 가능 */
+}
+
+.overlay_wrap {}
+
+.overlay-text {
+    font-size: 2.5rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    z-index: 1;
+    /* 텍스트를 음영 처리된 가상 요소 위에 배치 */
+    pointer-events: none;
+    /* 텍스트 위에 마우스 이벤트가 전달되지 않도록 설정 */
+}
+
+.overlay-text2 {
+    font-size: 3rem;
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    z-index: 1;
+    /* 텍스트를 음영 처리된 가상 요소 위에 배치 */
+    pointer-events: none;
+    /* 텍스트 위에 마우스 이벤트가 전달되지 않도록 설정 */
+}
+
+.overlay-text2>span {
+    color: #007fff;
+    font-weight: bold;
+}
+
+/* 텍스트 외곽에 얇은 그림자(선) 추가 */
+.shadow-text {
+    text-shadow: 0.5px -0.5px 0 rgb(255, 255, 255),
+        -0.5px -1.5px 0 rgb(255, 255, 255),
+        -0.5px 0.5px 0 rgb(255, 255, 255),
+        0.5px 0.5px 0 rgb(255, 255, 255);
+    /* 외곽에 얇은 그림자 효과 */
 }
 
 footer {
     width: 100%;
-    height: 150px;
-    background-color: #d3d3d3;
+    height: 700px;
 }
