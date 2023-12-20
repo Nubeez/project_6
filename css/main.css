@@ -312,7 +312,6 @@ header:hover .nav>ul>li>a {
 }
 
 #section3 {
-    width: 100%;
     height: 175vh;
     border: 1px solid #ccc;
     text-align: center;
@@ -386,9 +385,11 @@ header:hover .nav>ul>li>a {
 
 #section4 {
     position: relative;
-    width: 100%;
-    height: 500px;
+    height: 300px;
     background: url(../img/section4/bg_banner01_v2.webp);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 #section4::before {
@@ -402,8 +403,6 @@ header:hover .nav>ul>li>a {
     /* 어두운 음영을 주는 배경색 */
     /* 조절 가능한 opacity 값을 사용하여 음영 강도 조절 가능 */
 }
-
-.overlay_wrap {}
 
 .overlay-text {
     font-size: 2.5rem;
@@ -421,7 +420,7 @@ header:hover .nav>ul>li>a {
 .overlay-text2 {
     font-size: 3rem;
     position: absolute;
-    top: 65%;
+    top: 70%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: #fff;
@@ -436,16 +435,67 @@ header:hover .nav>ul>li>a {
     font-weight: bold;
 }
 
-/* 텍스트 외곽에 얇은 그림자(선) 추가 */
-.shadow-text {
-    text-shadow: 0.5px -0.5px 0 rgb(255, 255, 255),
-        -0.5px -1.5px 0 rgb(255, 255, 255),
-        -0.5px 0.5px 0 rgb(255, 255, 255),
-        0.5px 0.5px 0 rgb(255, 255, 255);
-    /* 외곽에 얇은 그림자 효과 */
-}
-
 footer {
     width: 100%;
-    height: 700px;
+}
+
+.footer-content {
+    text-align: left;
+}
+
+.footer-inner {
+    width: 100%;
+    margin-top: 50px;
+}
+
+.footer-inner>ul {
+    display: flex;
+}
+
+.footer-inner>ul>li {
+    line-height: 50px;
+}
+
+.footer-inner>ul>li>a {
+    margin-bottom: 22px;
+    line-height: 23px;
+    font-weight: bold;
+    font-size: 18px;
+    color: #000;
+    position: unset;
+    padding: 10px;
+    border-bottom: 1px solid #afafaf;
+}
+
+.footer-content {
+    border-top: 1px solid #afafaf;
+}
+
+.footer_align {
+    padding: 35px 0px;
+    margin-left: 40px;
+}
+
+.footer_align>span {}
+
+.diplay_flex {
+    display: flex;
+    align-items: center;
+}
+
+.dfa {
+    width: 30%;
+    display: flex;
+    align-items: center;
+}
+
+.footer_align p {
+    line-height: 20px;
+    font-size: 12px;
+    color: #707070;
+}
+
+.tx_bold_size {
+    font-size: 0.9rem;
+    color: #707070;
 }
