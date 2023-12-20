@@ -313,8 +313,75 @@ header:hover .nav>ul>li>a {
 
 #section3 {
     width: 100%;
-    height: 700px;
-    background-color: #8d8d8d;
+    height: 175vh;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+#section3>h2 {
+    width: 30%;
+    height: 10%;
+    background: url(../img/section3/line_logo_txt.webp) no-repeat center / 100% auto;
+
+}
+
+/* 이미지를 감싸는 요소 */
+.hiddenImage {
+    opacity: 0;
+    /* 처음에는 이미지가 투명하게 숨겨져 있음 */
+    transition: opacity 1s ease-in-out;
+    /* 페이드 인/아웃 효과를 주기 위한 트랜지션 */
+}
+
+.image-row {
+    display: flex;
+    justify-content: center;
+}
+
+.image-item {
+    width: 30%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    margin: 20px;
+}
+
+.image-item>img {
+    width: 100%;
+    height: 65%;
+}
+
+.visible {
+    opacity: 1;
+    /* 이미지를 보이도록 함 */
+}
+
+.image_content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: left;
+}
+
+.image_content strong,
+.image_content span,
+.image_content a {
+    margin: 10px;
+    /* strong, span, a 태그의 마진 값을 0으로 설정 */
+}
+
+.image_content strong {
+    font-size: 2rem;
+    margin-top: 30px;
+}
+
+.image_content span {
+    font-size: 1rem;
+    margin: 10px 10px;
+}
+
+.image_content a {
+    margin-top: 20px;
+    text-decoration: underline;
 }
 
 #section4 {
