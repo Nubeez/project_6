@@ -15,7 +15,7 @@
     transition: all 0.3s ease;
 
     /* 모든 속성에 대해 0.3초간의 애니메이션 적용 */
-    background-image: url(/img/icon/Top_arrow-up.png)
+    background-image: url(../img/icon/Top_arrow-up.png)
 }
 
 .Top_btn:hover,
