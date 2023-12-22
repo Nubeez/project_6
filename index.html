@@ -7,6 +7,7 @@
     <title>BESPOKE</title>
     <link rel="stylesheet" href="css/main.css">
     <script src="js/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="css/Top_Btn.css">
 </head>
 
 <body>
@@ -15,7 +16,7 @@
     <div id="wrap">
         <header>
             <div class="logo">
-                <a href="#">
+                <a href="">
                     <img src="img/logo-gnb.svg" alt="">
                 </a>
             </div>
@@ -38,8 +39,11 @@
                     <li><a href="#">삼성스토어</a></li>
                 </ul>
             </div>
-            <div class="dark_mode">Dark</div>
+            <div class="dark_mode">
+                <span><img id="dark-mode-toggle" src="img/mode/Darkmode.png" alt="달 아이콘"></span>
+            </div>
         </header>
+        <div class="Top_btn"></div>
         <div id="slide">
             <div class="tx_center">
                 <div class="tx_title hidden">
@@ -263,24 +267,36 @@
 </body>
 <script>
     $(function () {
+        $(".hidden").animate({ opacity: 1 }, 2000, function () {
+            // hidden1의 애니메이션이 끝나면 hidden2를 페이드 인시킴
+            $(".hidden2").animate({ opacity: 1 }, 1000);
+        });
+
+        // nav쪽 설정
         $(".nav_slide").mouseover(() => {
-            $(".nav_bgc").addClass("on");
+            if ($('body').hasClass('dark-mode')) {
+                $(".nav_bgc").addClass("on2");
+            } else {
+                $(".nav_bgc").addClass("on");
+                $('.dark_mode>span>img').css('background-color', '#000');
+            }
             $("header").addClass("bgc_on");
             $(".nav_bgc").stop().slideDown(500);
             $(".nav>ul>li>ul").stop().show(500);
-        })
+        });
+
         $(".nav>ul").mouseout(() => {
-            222
             $(".nav_bgc").stop().slideUp();
             $(".nav>ul>li>ul").stop().hide(300);
-        })
+        });
 
         $("header").mouseover(() => {
             $("header").addClass("bgc_on");
-        })
+        });
+
         $("header").mouseout(() => {
             $("header").removeClass("bgc_on");
-        })
+        });
 
         const btnImages = document.querySelectorAll('.btnImage');
 
@@ -296,36 +312,90 @@
                 this.src = "img/icon/arrow_2.png"; // 원래 이미지로 변경
             });
         });
-        // 이미지를 나타낼 섹션과 이미지 요소 선택
-        const images = document.querySelectorAll('#imageToShow .image-item');
 
-        // 이미지를 순차적으로 보여주는 함수
-        function showImagesSequentially() {
-            let index = 0;
-            images.forEach((image, idx) => {
-                setTimeout(() => {
-                    image.classList.add('visible'); // 이미지가 화면에 보이도록 클래스 추가
-                }, (idx + 1) * 500); // 각 이미지가 나타나는 시간 간격 (2초 간격)
-            });
-        }
+        let btn = document.querySelector(".Top_btn");
+        let header = document.querySelector("header");
+        let darkModeToggle = document.getElementById('dark-mode-toggle');
+        let body = document.body;
+        let smallBox = document.querySelectorAll('.small_box');
+        let section3 = document.getElementById('section3');
+        let isImageShowing = false; // 이미지 표시 여부를 나타내는 변수
 
-        // 스크롤 이벤트 핸들러
-        window.addEventListener('scroll', function () {
-            // 섹션의 위치 정보 가져오기
-            const sectionRect = document.getElementById('section3').getBoundingClientRect();
-
-            // 섹션의 상단이 화면에 보이는지 확인
-            if (sectionRect.top < window.innerHeight) {
-                document.querySelector('.hiddenImage').style.opacity = '1'; // hiddenImage의 opacity 변경
-                showImagesSequentially(); // 이미지 순차적으로 보여주는 함수 호출
+        window.addEventListener("scroll", function handleScroll() {
+            if (!isImageShowing) {
+                if (window.pageYOffset > header.offsetHeight) {
+                    btn.style.display = "block";
+                } else {
+                    btn.style.display = "none";
+                }
             }
         });
-        // 이미지 스크롤 이벤트 종료
-    });
-    $(document).ready(function () {
-        $(".hidden").animate({ opacity: 1 }, 2000, function () {
-            // hidden1의 애니메이션이 끝나면 hidden2를 페이드 인시킴
-            $(".hidden2").animate({ opacity: 1 }, 1000);
+
+        btn.addEventListener("click", function () {
+            isImageShowing = true; // 이미지 표시 중임을 나타내는 플래그 설정
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+
+        function showImagesSequentially() {
+            let images = document.querySelectorAll('#imageToShow .image-item');
+            let idx = 0;
+            let interval = setInterval(() => {
+                if (idx >= images.length) {
+                    clearInterval(interval);
+                    isImageShowing = false; // 이미지 표시가 끝났음을 나타내는 플래그 설정
+                    return;
+                }
+                images[idx].classList.add('visible'); // 이미지가 화면에 보이도록 클래스 추가
+                idx++;
+            }, 500); // 각 이미지가 나타나는 시간 간격 (0.5초 간격)
+        }
+
+        window.addEventListener('scroll', function () {
+            let sectionRect = section3.getBoundingClientRect();
+
+            if (sectionRect.top < window.innerHeight && !isImageShowing) {
+                showImagesSequentially();
+            }
+        });
+
+        darkModeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+
+            let isDarkMode = body.classList.contains('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+
+            if (isDarkMode) {
+                darkModeToggle.src = 'img/mode/Sunmode.png';
+                darkModeToggle.style.backgroundColor = '#fff';
+                header.classList.add("bgc_on2");
+                header.classList.remove("bgc_on");
+                document.querySelector('#section3 > h2').style.background = 'url(../img/section3/line_logo2_txt.webp) no-repeat center / 100% auto';
+                smallBox.forEach(box => {
+                    box.style.backgroundColor = '#000';
+                });
+            } else {
+                darkModeToggle.src = 'img/mode/Darkmode.png';
+                document.querySelector('#section3 > h2').style.background = 'url(../img/section3/line_logo_txt.webp) no-repeat center / 100% auto';
+                header.classList.remove("bgc_on2");
+                header.classList.add("bgc_on");
+                smallBox.forEach(box => {
+                    box.style.backgroundColor = '#f7f7f7';
+                });
+            }
+        });
+
+        header.addEventListener("mouseover", () => {
+            if (!body.classList.contains('dark-mode')) {
+                darkModeToggle.src = 'img/mode/Darkmode2.png';
+                darkModeToggle.style.backgroundColor = '#000';
+            }
+        });
+
+        header.addEventListener("mouseout", () => {
+            if (!body.classList.contains('dark-mode')) {
+                darkModeToggle.src = 'img/mode/Darkmode.png';
+                darkModeToggle.style.backgroundColor = '#fff';
+            }
         });
     });
 </script>

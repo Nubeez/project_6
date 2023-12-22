@@ -6,6 +6,36 @@
     vertical-align: top;
 }
 
+body {
+    transition: background-color 0.3s, color 0.3s;
+    /* 기본 스타일 */
+    background-color: white;
+    color: black;
+}
+
+.dark-mode {
+    /* 다크 모드 스타일 */
+    background-color: #1a1a1a;
+    color: #ffffff;
+}
+
+.dark-mode a {
+    color: #ffffff !important;
+    /* 다크 모드에서의 링크 색상 */
+}
+
+.dark-mode h3 {
+    color: #ffffff !important;
+    /* 다크 모드에서의 링크 색상 */
+}
+
+/* 달과 해 아이콘 스타일 */
+#dark-mode-toggle {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
 @font-face {
     font-family: 'SUITE-Regular';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2') format('woff2');
@@ -44,6 +74,11 @@ header {
     transition: all 200ms;
 }
 
+.bgc_on2 {
+    background-color: #000000;
+    transition: all 200ms;
+}
+
 .logo {
     width: 20%;
     height: 100px;
@@ -58,6 +93,11 @@ header {
 
 header:hover .logo>a>img {
     filter: invert(0%);
+}
+
+/* 다크 모드일 때 해당 스타일 제거 */
+.dark-mode header:hover .logo>a>img {
+    filter: invert(100%) !important;
 }
 
 .nav_bgc {
@@ -75,6 +115,12 @@ header:hover .logo>a>img {
     display: none;
 }
 
+.on2 {
+    background-color: #000;
+    height: 250px;
+    display: none;
+}
+
 .nav {
     width: 60%;
 }
@@ -85,7 +131,12 @@ header:hover .logo>a>img {
     text-align: center;
     display: flex;
     align-items: center;
-    justify-content: center;
+}
+
+#dark-mode-toggle {
+    padding: 5px;
+    border-radius: 50px;
+    background-color: #fff;
 }
 
 .nav>ul {
@@ -320,15 +371,6 @@ header:hover .nav>ul>li>a {
     width: 30%;
     height: 10%;
     background: url(../img/section3/line_logo_txt.webp) no-repeat center / 100% auto;
-
-}
-
-/* 이미지를 감싸는 요소 */
-.hiddenImage {
-    opacity: 0;
-    /* 처음에는 이미지가 투명하게 숨겨져 있음 */
-    transition: opacity 1s ease-in-out;
-    /* 페이드 인/아웃 효과를 주기 위한 트랜지션 */
 }
 
 .image-row {

@@ -1,0 +1,32 @@
+.Top_btn {
+    display: none;
+    background-repeat: no-repeat;
+    background-size: 60%;
+    background-position: center center;
+    background-color: #dbdbdb;
+    width: 40px;
+    height: 40px;
+    position: fixed;
+    padding: 10px;
+    border-radius: 50%;
+    right: 1%;
+    bottom: 20%;
+    z-index: 99;
+    transition: all 0.3s ease;
+
+    /* 모든 속성에 대해 0.3초간의 애니메이션 적용 */
+    background-image: url(/img/icon/Top_arrow-up.png)
+}
+
+.Top_btn:hover,
+.Top_btn:focus {
+    transform: translateY(-2px);
+    /* 버튼을 위로 4픽셀 이동시키는 효과 */
+}
+
+/* 눌렀을때 */
+.Top_btn:active {
+    transform: translateY(0px);
+    /* 버튼을 제자리로 돌아오도록 함 */
+    /* box-shadow: none; 그림자 효과 없앰 */
+}
