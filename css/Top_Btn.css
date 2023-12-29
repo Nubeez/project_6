@@ -1,16 +1,30 @@
 .Top_btn {
     display: none;
     background-repeat: no-repeat;
-    background-size: 60%;
+    background-size: 70%;
     background-position: center center;
     background-color: #dbdbdb;
     width: 40px;
     height: 40px;
     position: fixed;
-    padding: 10px;
     border-radius: 50%;
     right: 1%;
     bottom: 20%;
+    z-index: 99;
+    transition: all 0.3s ease;
+
+    /* 모든 속성에 대해 0.3초간의 애니메이션 적용 */
+    background-image: url(../img/icon/Top_arrow-up.png)
+}
+
+.Top_btn2 {
+    background-color: #dbdbdb;
+    width: 41px;
+    height: 40px;
+    position: fixed;
+    border-radius: 50%;
+    right: 1%;
+    bottom: 14%;
     z-index: 99;
     transition: all 0.3s ease;
 

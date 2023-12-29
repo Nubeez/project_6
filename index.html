@@ -39,15 +39,17 @@
                     <li><a href="#">삼성스토어</a></li>
                 </ul>
             </div>
-            <div class="dark_mode">
-                <span><img id="dark-mode-toggle" src="img/mode/Darkmode.png" alt="달 아이콘"></span>
+            <!-- 모바일 메뉴 -->
+            <div class="nav_m">
+                <a class="menu-trigger" href="#">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </a>
             </div>
-            <div class="mobile-menu-toggle">
-                <button id="menu-toggle-btn">&#9776; Menu</button>
-            </div>
-            <nav class="mobile-menu">
+            <div class="nav_mobile">
                 <ul>
-                    <li class="nav_slide">
+                    <li class="nav_slide"><a href="#">비스포크</a>
                         <ul>
                             <h3>제품소개</h3>
                             <li><a href="#">냉장고</a></li>
@@ -61,11 +63,14 @@
                     <li><a href="#">체험단 신청</a></li>
                     <li><a href="#">고객지원</a></li>
                     <li><a href="#">삼성스토어</a></li>
-                    </ul>
                 </ul>
-            </nav>
+            </div>
+            <!-- 모바일 메뉴 -->
         </header>
         <div class="Top_btn"></div>
+        <div class="dark_mode Top_btn2">
+            <span><img id="dark-mode-toggle" src="img/mode/Darkmode.png" alt="달 아이콘"></span>
+        </div>
         <div id="slide">
             <div class="tx_center">
                 <div class="tx_title hidden">
@@ -320,6 +325,20 @@
             $("header").removeClass("bgc_on");
         });
 
+        // 햄버거메뉴
+        const burger = $('.menu-trigger');
+
+        burger.each(function (index) {
+            const $this = $(this);
+
+            $this.on('click', function (e) {
+                e.preventDefault();
+                $(this).toggleClass('active-' + (index + 1));
+            })
+        });
+
+        // section2의 박스안 버튼 이미지
+
         const btnImages = document.querySelectorAll('.btnImage');
 
         // 각 이미지에 대해 반복하여 이벤트 리스너 추가
@@ -343,6 +362,7 @@
         let section3 = document.getElementById('section3');
         let isImageShowing = false; // 이미지 표시 여부를 나타내는 변수
 
+        // 사이드 버튼 스크롤 시 일정 높이에 나타나게 설정
         window.addEventListener("scroll", function handleScroll() {
             if (!isImageShowing) {
                 if (window.pageYOffset > header.offsetHeight) {
@@ -354,10 +374,11 @@
         });
 
         btn.addEventListener("click", function () {
-            isImageShowing = true; // 이미지 표시 중임을 나타내는 플래그 설정
+            isImageShowing = false; // 이미지 표시 중임을 나타내는 플래그 설정
             window.scrollTo({ top: 0, behavior: "smooth" });
         });
 
+        // section2 이미지 서서히 나타나게하는 설정
         function showImagesSequentially() {
             let images = document.querySelectorAll('#imageToShow .image-item');
             let idx = 0;
@@ -380,6 +401,7 @@
             }
         });
 
+        // 다크모드 설정
         darkModeToggle.addEventListener('click', () => {
             body.classList.toggle('dark-mode');
 
@@ -388,12 +410,19 @@
 
             if (isDarkMode) {
                 darkModeToggle.src = 'img/mode/Sunmode.png';
-                darkModeToggle.style.backgroundColor = '#fff';
                 header.classList.add("bgc_on2");
                 header.classList.remove("bgc_on");
                 document.querySelector('#section3 > h2').style.background = 'url(img/section3/line_logo2_txt.webp) no-repeat center / 100% auto';
                 smallBox.forEach(box => {
                     box.style.backgroundColor = '#000';
+                });
+
+                // 이미지 필터 조정
+                document.querySelector('.logo > a > img').style.filter = 'invert(100%)';
+
+                // .menu-trigger span 배경색 조정
+                document.querySelectorAll('.menu-trigger span').forEach(span => {
+                    span.style.backgroundColor = '#fff';
                 });
             } else {
                 darkModeToggle.src = 'img/mode/Darkmode.png';
@@ -403,29 +432,15 @@
                 smallBox.forEach(box => {
                     box.style.backgroundColor = '#f7f7f7';
                 });
-            }
-        });
 
-        header.addEventListener("mouseover", () => {
-            if (!body.classList.contains('dark-mode')) {
-                darkModeToggle.src = 'img/mode/Darkmode2.png';
-                darkModeToggle.style.backgroundColor = '#000';
-            }
-        });
+                // 다크 모드 비활성화 시 이미지 필터 원래대로 조정
+                document.querySelector('.logo > a > img').style.filter = 'invert(0%)';
 
-        header.addEventListener("mouseout", () => {
-            if (!body.classList.contains('dark-mode')) {
-                darkModeToggle.src = 'img/mode/Darkmode.png';
-                darkModeToggle.style.backgroundColor = '#fff';
+                // .menu-trigger span 배경색 원래대로 조정
+                document.querySelectorAll('.menu-trigger span').forEach(span => {
+                    span.style.backgroundColor = '#000'; // 기본값으로 변경하거나 다른 색상으로 지정 가능
+                });
             }
-        });
-    });
-    document.addEventListener('DOMContentLoaded', function () {
-        const menuToggleBtn = document.getElementById('menu-toggle-btn');
-        const mobileMenu = document.querySelector('.mobile-menu');
-
-        menuToggleBtn.addEventListener('click', function () {
-            mobileMenu.classList.toggle('active');
         });
     });
 </script>
