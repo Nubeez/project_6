@@ -47,11 +47,11 @@
                     <span></span>
                 </a>
             </div>
-            <div class="nav_mobile">
+            <div class="nav_mobile nav_slide">
                 <ul>
-                    <li class="nav_slide"><a href="#">비스포크</a>
+                    <li class="nav_mobile_slide"><a href="#">비스포크</a>
                         <ul>
-                            <h3>제품소개</h3>
+                            <h5>제품소개</h5>
                             <li><a href="#">냉장고</a></li>
                             <li><a href="#">김치냉장고</a></li>
                             <li><a href="#">식기세척기</a></li>
@@ -305,7 +305,6 @@
                 $(".nav_bgc").addClass("on2");
             } else {
                 $(".nav_bgc").addClass("on");
-                $('.dark_mode>span>img').css('background-color', '#000');
             }
             $("header").addClass("bgc_on");
             $(".nav_bgc").stop().slideDown(500);
@@ -325,16 +324,54 @@
             $("header").removeClass("bgc_on");
         });
 
+        // 햄버거
+        const menuTrigger = document.querySelector('.menu-trigger');
+        const navBgc = document.querySelector('.nav_bgc');
+
+        menuTrigger.addEventListener('click', function () {
+            if (navBgc.classList.contains('on')) {
+                if (navBgc.style.display === 'block') {
+                    navBgc.style.display = 'none';
+                } else {
+                    navBgc.style.display = 'block';
+                }
+            }
+        });
+
+        // 모바일 메뉴
+        // JavaScript
+        const navMobileSlide = document.querySelector('.nav_mobile_slide');
+        const navMobileUlLiUl = document.querySelector('.nav_mobile > ul > li > ul');
+
+        let isNavMobileOpen = false;
+
+        navMobileSlide.addEventListener('click', function () {
+            isNavMobileOpen = !isNavMobileOpen;
+
+            if (isNavMobileOpen) {
+                navMobileUlLiUl.style.height = navMobileUlLiUl.scrollHeight + "px";
+            } else {
+                navMobileUlLiUl.style.height = 0;
+            }
+        });
+
+
+
         // 햄버거메뉴
-        const burger = $('.menu-trigger');
+        const burger = document.querySelectorAll('.menu-trigger');
+        const navMobile = document.querySelector('.nav_mobile');
 
-        burger.each(function (index) {
-            const $this = $(this);
-
-            $this.on('click', function (e) {
+        burger.forEach((element, index) => {
+            element.addEventListener('click', function (e) {
                 e.preventDefault();
-                $(this).toggleClass('active-' + (index + 1));
-            })
+                this.classList.toggle('active-' + (index + 1));
+
+                if (this.classList.contains('active-1')) {
+                    navMobile.style.display = 'block';
+                } else {
+                    navMobile.style.display = 'none';
+                }
+            });
         });
 
         // section2의 박스안 버튼 이미지
