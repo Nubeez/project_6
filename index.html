@@ -324,22 +324,7 @@
             $("header").removeClass("bgc_on");
         });
 
-        // 햄버거
-        const menuTrigger = document.querySelector('.menu-trigger');
-        const navBgc = document.querySelector('.nav_bgc');
-
-        menuTrigger.addEventListener('click', function () {
-            if (navBgc.classList.contains('on')) {
-                if (navBgc.style.display === 'block') {
-                    navBgc.style.display = 'none';
-                } else {
-                    navBgc.style.display = 'block';
-                }
-            }
-        });
-
-        // 모바일 메뉴
-        // JavaScript
+        // 모바일 메뉴 JavaScript
         const navMobileSlide = document.querySelector('.nav_mobile_slide');
         const navMobileUlLiUl = document.querySelector('.nav_mobile > ul > li > ul');
 
@@ -355,11 +340,24 @@
             }
         });
 
+        // 햄버거메뉴 on의 설정
+        const menuTrigger = document.querySelector('.menu-trigger');
+        const navBgc = document.querySelector('.nav_bgc');
 
-
+        menuTrigger.addEventListener('click', function () {
+            if (navBgc.classList.contains('on') || navBgc.classList.contains('on2')) {
+                if (navBgc.style.display === 'block') {
+                    navBgc.style.display = 'none';
+                } else {
+                    navBgc.style.display = 'block';
+                }
+            }
+        });
+        
         // 햄버거메뉴
         const burger = document.querySelectorAll('.menu-trigger');
         const navMobile = document.querySelector('.nav_mobile');
+
 
         burger.forEach((element, index) => {
             element.addEventListener('click', function (e) {
@@ -461,6 +459,12 @@
                 document.querySelectorAll('.menu-trigger span').forEach(span => {
                     span.style.backgroundColor = '#fff';
                 });
+
+                // nav_bgc 클래스 상태에 따라 변경
+                if (document.querySelector('.nav_bgc').classList.contains('on')) {
+                    document.querySelector('.nav_bgc').classList.remove('on');
+                    document.querySelector('.nav_bgc').classList.add('on2');
+                }
             } else {
                 darkModeToggle.src = 'img/mode/Darkmode.png';
                 document.querySelector('#section3 > h2').style.background = 'url(img/section3/line_logo_txt.webp) no-repeat center / 100% auto';
@@ -477,8 +481,15 @@
                 document.querySelectorAll('.menu-trigger span').forEach(span => {
                     span.style.backgroundColor = '#000'; // 기본값으로 변경하거나 다른 색상으로 지정 가능
                 });
+
+                // nav_bgc 클래스 상태에 따라 변경
+                if (document.querySelector('.nav_bgc').classList.contains('on2')) {
+                    document.querySelector('.nav_bgc').classList.remove('on2');
+                    document.querySelector('.nav_bgc').classList.add('on');
+                }
             }
         });
+
     });
 </script>
 
