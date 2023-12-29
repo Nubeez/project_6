@@ -42,6 +42,28 @@
             <div class="dark_mode">
                 <span><img id="dark-mode-toggle" src="img/mode/Darkmode.png" alt="달 아이콘"></span>
             </div>
+            <div class="mobile-menu-toggle">
+                <button id="menu-toggle-btn">&#9776; Menu</button>
+            </div>
+            <nav class="mobile-menu">
+                <ul>
+                    <li class="nav_slide">
+                        <ul>
+                            <h3>제품소개</h3>
+                            <li><a href="#">냉장고</a></li>
+                            <li><a href="#">김치냉장고</a></li>
+                            <li><a href="#">식기세척기</a></li>
+                            <li><a href="#">오븐/큐커</a></li>
+                            <li><a href="#">전자레인지</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">설치 가이드</a></li>
+                    <li><a href="#">체험단 신청</a></li>
+                    <li><a href="#">고객지원</a></li>
+                    <li><a href="#">삼성스토어</a></li>
+                    </ul>
+                </ul>
+            </nav>
         </header>
         <div class="Top_btn"></div>
         <div id="slide">
@@ -396,6 +418,14 @@
                 darkModeToggle.src = 'img/mode/Darkmode.png';
                 darkModeToggle.style.backgroundColor = '#fff';
             }
+        });
+    });
+    document.addEventListener('DOMContentLoaded', function () {
+        const menuToggleBtn = document.getElementById('menu-toggle-btn');
+        const mobileMenu = document.querySelector('.mobile-menu');
+
+        menuToggleBtn.addEventListener('click', function () {
+            mobileMenu.classList.toggle('active');
         });
     });
 </script>
