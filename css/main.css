@@ -866,9 +866,18 @@ footer {
     }
 }
 
-@media screen and (min-width: 769px) and (max-width: 1023px) {
+@media screen and (min-width: 768px) and (max-width: 1023px) {
     .nav {
         display: none;
+    }
+
+    .nav_mobile>ul>li {
+        font-size: 1.2rem;
+    }
+
+    .nav_mobile>ul>li>a {
+        font-size: 1.6rem;
+        font-weight: bold;
     }
 
     .on {
@@ -886,6 +895,10 @@ footer {
 
     .nav_m {
         display: block;
+    }
+
+    header:hover .logo>a>img {
+        filter: invert(0%) !important;
     }
 
     .nav_mobile {
@@ -1076,7 +1089,7 @@ footer {
     }
 }
 
-@media screen and (min-width: 425px) and (max-width: 768px) {
+@media screen and (min-width: 425px) and (max-width: 767px) {
 
     .nav {
         display: none;
@@ -1084,6 +1097,44 @@ footer {
 
     .on {
         display: none;
+    }
+
+    .nav_m {
+        display: block;
+    }
+
+    header:hover .logo>a>img {
+        filter: invert(0%) !important;
+    }
+
+    .nav_mobile {
+        position: absolute;
+        top: 120px;
+        z-index: 99;
+        width: 100%;
+    }
+
+    .nav_mobile>ul {
+        display: flex;
+        width: 100%;
+    }
+
+    .nav_mobile>ul>li {
+        font-size: 0.8rem;
+    }
+
+    .nav_mobile>ul>li>a {
+        font-size: 1rem;
+        font-weight: bold;
+    }
+
+    .nav_mobile>ul>li:first-child>a::before {
+        content: none;
+    }
+
+    .nav_mobile>ul>li>a::before {
+        content: "|";
+        margin-right: 3px;
     }
 
     .tx_center {
@@ -1269,12 +1320,45 @@ footer {
     }
 
     .nav_m {
-        width: 10%;
+        display: block;
+    }
+
+    header:hover .logo>a>img {
+        filter: invert(0%) !important;
+    }
+
+    .nav_mobile {
+        position: absolute;
+        top: 120px;
+        z-index: 99;
+        width: 100%;
+    }
+
+    .nav_mobile>ul {
         display: flex;
+        width: 100%;
     }
 
     .menu-toggle {
         display: block;
+    }
+
+    .nav_mobile>ul>li {
+        font-size: 0.75rem;
+    }
+
+    .nav_mobile>ul>li>a {
+        font-size: 0.9rem;
+        font-weight: bold;
+    }
+
+    .nav_mobile>ul>li:first-child>a::before {
+        content: none;
+    }
+
+    .nav_mobile>ul>li>a::before {
+        content: "|";
+        margin-right: 8px;
     }
 
     /* 아이폰12 pro */
@@ -1469,12 +1553,54 @@ footer {
     }
 
     .nav_m {
-        width: 10%;
+        display: block;
+    }
+
+    header:hover .logo>a>img {
+        filter: invert(0%) !important;
+    }
+
+    .nav_mobile {
+        position: absolute;
+        top: 120px;
+        z-index: 99;
+        width: 100%;
+    }
+
+    .nav_mobile>ul {
         display: flex;
+        width: 100%;
+    }
+
+    .nav_mobile>ul>li {
+        font-size: 0.7rem;
+    }
+
+    .nav_mobile>ul>li>a {
+        font-size: 0.75rem;
+        font-weight: bold;
+    }
+
+    .nav_mobile>ul>li:first-child>a::before {
+        content: none;
+    }
+
+    .nav_mobile>ul>li>a::before {
+        content: "|";
+        margin-right: 7px;
+    }
+
+    .nav_mobile>ul>li>ul {
+        display: block;
     }
 
     .menu-toggle {
         display: block;
+    }
+
+    .nav_mobile {
+        display: none;
+        /* 기본적으로 숨겨진 상태 */
     }
 
     .nav {
