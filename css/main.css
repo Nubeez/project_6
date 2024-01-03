@@ -94,7 +94,7 @@ header {
 }
 
 header:hover .logo>a>img {
-    filter: invert(0%);
+    filter: invert(0%) !important;
 }
 
 /* 다크 모드일 때 해당 스타일 제거 */
